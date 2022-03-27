@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulando vetores</title>
+</head>
+<body>
+    <h1>Manipulação de vetores</h1>
+    <button id="btInserirFinal" onclick="InserirFinal()">Inserir no final </button><br/>
+    <button id="btInserirInício" onclick="InserirInício()">Inserir no início</button><br/>
+    <button id="btLimpar" onclick="Limpar()">Limpa o vetor</button><br/>
+    <button id="btRemoveÍndice" onclick="RemoveÍndice()">Remove o índice</button><br/>
+    <button id="btListar" onclick="Listar()">Lista o vetor de forma ordenada</button><br/>
+    Digite um número:<input id="inputNum" type="number"/>
+        
+    <script>
+    const btInserirFinal = document.getElementById("btInserirFinal");
+    const btInserirInício = document.getElementById("btInserirInício");
+    const btLimpar = document.getElementById("btLimpar");
+    const btRemoveÍndice = document.getElementById("btRemoveÍndice");
+    const btListar = document.getElementById("btListar");
+    let inputNum= document.getElementById("inputNum");
+    let Vetor=[];
+    
+    function InserirFinal(){
+    Vetor.push(inputNum.value);
+    window.document.write(Vetor)
+    console.log(Vetor);
+    document.getElementById('inputNum').value='';
+    document.getElementById('inputNum').focus();
+    }
+
+    function InserirInício(){
+    Vetor.unshift(inputNum.value);
+    console.log(Vetor)
+    document.getElementById('inputNum').value='';
+    document.getElementById('inputNum').focus();
+    }
+
+    function Limpar(){
+    Vetor.length=0;
+    console.log(Vetor)
+    document.getElementById('inputNum').value='';
+    document.getElementById('inputNum').focus();
+    }
+
+    function RemoveÍndice(){
+        if( inputNum.value==-1){
+	alert("O valor não foi encontrado!")}
+        else{
+	alert(`O valor do índíce ${inputNum.value} de valor ${Vetor[inputNum.value]} será removido!`)}
+        Vetor[inputNum.value]='';
+        document.getElementById('inputNum').value='';
+        document.getElementById('inputNum').focus();
+    }
+    function Listar(){
+        Vetor.sort();
+        console.log(Vetor)
+    }
+       </script>
+</body>
+</html>
