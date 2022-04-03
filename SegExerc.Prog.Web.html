@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Vetores</h1>
+    <p>
+    Opções de entrada</br>
+    </p>
+    <button id="btvalorMax" onclick="valorMax()">valor máximo </button><br/>
+    <button id="btvalorMin" onclick="valorMin()">valor mínimo </button><br/>
+    <button id="btGerar" onclick="GerarNumeros()">Gerar os números </button><br/>
+    <button id="btQuantNum" onclick="quantNum()">Quantidade de números gerados </button></br>
+    Digite um número:<input id="inputNum" type="number"/>
+    
+    <pre>
+        <li id="valores"></li>
+    </pre>
+    
+    <script>
+
+        const btvalorMax = document.getElementById("btvalorMax");
+        const btvalorMin = document.getElementById("btvalorMin");
+        const btGerar = document.getElementById("btGerar");
+        const btQuantNum = document.getElementById("btQuantNum");
+        let inputNum = document.getElementById("inputNum");
+                       
+        
+    function valorMax(){
+        let valorMáximo = parseInt(inputNum.value);
+        inputNum.value = "";
+        inputNum.focus();
+    
+        }
+
+    function valorMin(){
+        let valorMínimo = parseInt(inputNum.value);
+        inputNum.value = "";
+        inputNum.focus();
+    
+        }
+    
+    function quantNum(){
+        quantNum = parseInt(inputNum.value);
+        console.log(quantNum)
+        inputNum.value = "";
+        inputNum.focus();
+            
+        }
+    function GerarNumeros(valorMínimo,valorMáximo,quantNum){
+            document.getElementById("valores").innerHTML=Math.trunc(Math.random(valorMínimo,valorMáximo) * 100) + 1
+        }
+
+          </script>
+</body>
+</html>
