@@ -1,0 +1,43 @@
+let inputvalor=document.getElementById("inputvalor")
+const botão = document.getElementById("botão");
+function botao(){
+let n100=0;
+let n50=0;
+let n20=0;
+let n10=0;
+let n5=0;
+let n2=0;
+let m100=0;
+let m50=0;
+let m25=0;
+let m10=0;
+let m5=0;
+let m1=0;
+let valor=(inputvalor.value);
+let qtdNotas100=parseInt(valor/100);
+valor=valor%100;
+qtdNotas50=parseInt(valor/50);
+valor=valor%50;
+qtdNotas20=parseInt(valor/20);
+valor=valor%20;
+qtdNotas10=parseInt(valor/10);
+valor=valor%10;
+qtdNotas5=parseInt(valor/5);
+valor=valor%5;
+qtdNotas2=parseInt(valor/2);
+valor=valor%2;
+valor=valor*100;
+qtdMoeda100=parseInt(valor/100);
+valor=valor%100;
+qtdMoeda50=parseInt(valor/50);
+valor=valor%50;
+qtdMoeda25=parseInt(valor/25);
+valor=valor%25;
+qtdMoeda10=parseInt(valor/10);
+valor=valor%10;
+qtdMoeda5=parseInt(valor/5);
+valor=valor%5;
+qtdMoeda1=parseInt(valor/1);
+valor=valor%1;
+window.alert(`${qtdNotas100} nota(s) de 100 reais,${qtdNotas50} nota(s) de 50 reais,${qtdNotas20} nota(s) de 20 reais,${qtdNotas10} nota(s) de 10 reais,${qtdNotas5} nota(s) de 5 reais,${qtdNotas2} nota(s) de 2 reais,${qtdMoeda100} moeda de 1 real,${qtdMoeda50} moeda de 50 centavos,${qtdMoeda25} moeda de 25 centavos,${qtdMoeda10} moeda(s) de 10 centavos,${qtdMoeda5} moeda de 5 centavos e ${qtdMoeda1} moeda(s) de 1 centavo`)
+}
