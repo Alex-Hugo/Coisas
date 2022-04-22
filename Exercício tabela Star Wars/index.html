@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fetch</title>
+    <script src="codigo.js" defer></script>
+    <style>
+        table, th, td,tr {
+          border: 1px solid black;
+          text-align: left;
+        }
+        th, td {
+           padding: 13px;
+        }
+    </style>
+  </head>
+  <body>
+    <p>
+      Clique no botão para carregar a lista:
+      <button id="btFetch">Executar o Fetch</button>
+    </p>
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Ano de Nascimento</th>
+            <th>Altura</th>
+            <th>Peso</th>
+            <th>Cor do cabelo</th>
+            <th>Cor da pele</th>
+            <th>Cor dos olhos</th>
+        </tr>
+        </table>
+    <ol id="listaFetch"></ol>
+    <p>
+        <button id="btProxPag">Próxima Página</button>
+      </p>
+    </body>
+</html>
