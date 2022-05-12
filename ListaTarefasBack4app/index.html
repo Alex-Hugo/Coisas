@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="stylepage.css">
+  <title>Back4app - tarefas</title>
+  <script type="text/javascript" src="https://npmcdn.com/parse/dist/parse.min.js"></script>
+</head>
+
+<body>
+  <div id="myDIV" class="header">
+    <h1>Lista de Tarefas</h1>
+    <a href="https://github.com/Alex-Hugo">de Alexandre Brito</a>
+    <div id="MyImput"></div>
+    <input type="text" id="myInput" placeholder="Digite aqui...">
+    <div id="buneka">
+      <span onclick="newElement()" class="addBtn">Inserir</span>
+      <div id="seleção">
+        <select name="filtro" id="filtro">
+          <option value="todas">Todas</option>
+          <option value="feitas">Concluídas</option>
+          <option value="nfeitas">Não</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <ul id="myUL">
+  </ul>
+  <script>
+
+    Parse.initialize("H4nJ2pLHqTzZE7OjsWGxOAohiG4ygplk5ICV8a4e", "Fm8zUfAxnQeOOeiryVGsE0pLfSy56X2iz0p0ojcy"); //PASTE HERE YOUR Back4App APPLICATION ID AND YOUR JavaScript KEY
+    Parse.serverURL = 'https://parseapi.back4app.com/'
+
+    function deletar(task) {
+      element = document.querySelector(`[task="${task}"]`);
+      element.parentNode.remove();
+      readThenDelete(task);
+    }
+
+
+    function readThenDelete(task) {
+      const tarefa = new Parse.Object("Tasks");
+      query = new Parse.Query(tarefa);
+      query.equalTo("task", task);
+      query.first().then(function (task) {
+        if (task) {
+          deleteTask(task);
+        }
+      });
+    }
+
+    function deleteTask(Task) {
+      Task.destroy().then(function (response) {
+      }).catch(function (response, error) {
+        console.log('Error: ' + error.message);
+      });
+    }
+
+    function readThenUpdate(task) {
+      const tarefa = new Parse.Object("Tasks");
+      query = new Parse.Query(tarefa);
+      query.equalTo("task", task);
+      query.first().then(function (task) {
+        if (task) {
+          update(task);
+        }
+      });
+    }
+
+    function update(resultado) {
+      atual = resultado.attributes.concluida;
+      if (atual == true) {
+        resultado.set("concluida", false);
+      } else {
+        resultado.set("concluida", true);
+      }
+      resultado.save().then(function (pet) {
+      })
+    }
+
+
+    // Add a "checked" symbol when clicking on a list item
+    var list = document.querySelector('ul');
+    list.addEventListener('click', function (ev) {
+        task = ev.target.innerText.replace("\n\u00D7", "");
+        readThenUpdate(task);
+
+        if (ev.target.tagName === 'LI') {
+          ev.target.classList.toggle('checked');
+        }
+    }, false);
+
+    // Create a new list item when clicking on the "Add" button
+    function newElement() {
+
+      var input = document.getElementById("myInput").value;
+
+      enviarTarefa(input);
+
+
+      var li = document.createElement("li");
+      li.insertAdjacentHTML("afterbegin", `${input}<span class="close" onclick="deletar('${input}')" task="${input}">\u00D7</span>`)
+      var inputValue = document.getElementById("myInput").value;
+      if (inputValue === '') {
+        alert("Você deve escrever algo!");
+      } else {
+        document.getElementById("myUL").appendChild(li);
+      }
+      document.getElementById("myInput").value = "";
+    }
+
+    function init(resultados) {
+      for (let i = 0; i < resultados.length; i++) {
+        const element = resultados[i];
+        let task = element.attributes.task;
+        let conclusao = element.attributes.concluida;
+
+        var li = document.createElement("li");
+        if (conclusao == true) {
+          li.classList.add("checked");
+        }
+        var inputValue = document.getElementById("myInput").value;
+        document.getElementById("myUL").appendChild(li);
+        li.insertAdjacentHTML("afterbegin", `${task}<span class="close" onclick="deletar('${element.attributes.task}')" task="${element.attributes.task}">\u00D7</span>`)
+        document.getElementById("myInput").value = "";
+      };
+    }
+
+    async function enviarTarefa(input) {
+      const tarefa = new Parse.Object("Tasks");
+
+      tarefa.set("task", input);
+      tarefa.set("concluida", false);
+      try {
+        let result = await tarefa.save()
+      } catch (error) { console.log(error.message) }
+    }
+
+    resultados = "";
+    function readAll() {
+      Todo = Parse.Object.extend("Tasks");
+
+      query = new Parse.Query(Todo);
+      query.find().then((results) => {
+        init(results)
+      });
+    }
+    readAll();
+
+  </script>
+</body>
+
+</html>
