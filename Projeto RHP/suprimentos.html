@@ -1,0 +1,80 @@
+<!doctype html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Agendamento</title>
+   
+    <link rel="stylesheet" href="style2.css">
+    
+        
+   
+    
+
+</head>
+<body>
+    <ul>
+        <li><a href="homeColaborador.html">Home</a></li>
+        
+      </ul>
+
+      <div class="logo-line"> 
+          <div class="row"> 
+                      <img src="http://www.rhp.com.br/conteudo/site/images/logo-rhp-horizontal.svg" alt="" > </a>
+
+                    </div> 
+                            
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+        <br>
+
+        <br>
+       
+      
+      <script>
+      function Mudarestado(el) {
+        var display = document.getElementById(el).style.display;
+        if(display == "none")
+            document.getElementById(el).style.display = 'block';
+        else
+            document.getElementById(el).style.display = 'none';
+    }
+    
+      </script>
+                
+
+        <div class="text">
+            <h2>Materiais:</h2>
+        </div>
+
+        <div id="suprimentos">
+            <select>
+            <option>Datashow</option>
+            <option>Laser</option>
+            <option>Tabela</option>
+            <option>Quadro de amostragem</option>
+            </select>
+
+            <select id="qtd">
+            
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+           
+           </select>
+
+        </div>
+<button type="button" onclick="Mudarestado('suprimentos')('qtd')">Não quero solicitar materiais!</button>
+
+    
+    
+       <a href='ConclusionColab.html'><button>Concluir</button></a>
+       
+       
+    
+<br>
+<br>
+
+ </body>
+</html>
