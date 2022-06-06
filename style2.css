@@ -1,0 +1,185 @@
+body{
+    background-image: url(https://create.vista.com/downloads/?filePath=/downloads/faa4997c-a61e-4708-acbc-22f787fd2f33.jpeg);
+    
+}
+h1{
+    background-color: rgba(97, 198, 241, 0.849);
+}
+h1{
+    color: rgba(0, 0, 0, 0.849);
+}
+#sala{
+    display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 4px;
+
+position: absolute;
+width: 268px;
+height: 20px;
+left: 647px;
+top: 100px;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.logo-line{
+    position:absolute;
+    margin-left:0px;
+    margin-top:0px;
+    width:300px;
+    height:300px;
+}
+.hours{
+   
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 4px;
+    
+    position: absolute;
+    width: 200px;
+    height: 20px;
+    left: 500px;
+    top: 250px;
+    
+    
+}
+#horas{
+    display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 4px;
+
+position: absolute;
+width: 100px;
+height: 20px;
+left: 500px;
+top: 300px;
+    
+}
+#sala{
+    display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 4px;
+
+width: 100px;
+height: 20px;
+left: 620px;
+top: 300px;
+}
+#cal-wrap * { font-family: arial, sans-serif; }
+.ninja { display: none !important; }
+
+/* (B) CONTAINER */
+#cal-wrap { max-width: 600px; }
+
+/* (C) PERIOD SELECTOR */
+#cal-date { display: flex; }
+#cal-mth, #cal-yr {
+  box-sizing: border-box;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  border: 0;
+}
+
+
+
+/* (D) CALENDAR */
+#calendar {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgb(255, 255, 255);
+}
+#calendar tr.head td {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(97, 198, 241, 0.849);
+  padding: 15px;
+  text-align: center;
+}
+#calendar tr.day td {
+  border: 1px solid rgb(0, 0, 0);
+  width: 14.28%;
+  padding: 15px 5px;
+  vertical-align: top;
+}
+#calendar tr.day td:hover {
+  background: #a4ebb3;
+  cursor: pointer;
+}
+#calendar tr td.blank {
+  background: #f5f5f5;
+}
+#calendar tr td.today {
+  background: #defcff;
+}
+#calendar .dd {
+  font-size: 1.2em;
+  color: #999;
+}
+#calendar .evt {
+  margin-top: 5px;
+  font-size: 0.8em;
+  font-weight: bold;
+  overflow: hidden;
+  color: #000000;
+}
+
+/* (E) ADD/EDIT EVENT */
+#cal-event {
+  padding: 15px;
+  margin-top: 20px;
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+}
+#cal-event h1 {
+  color: #333;
+  padding: 0;
+  margin: 0;
+}
+#evt-date {
+  color: #555;
+  margin: 10px 0;
+}
+#cal-event textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  min-height: 100px;
+}
+#cal-event input[type=button], #cal-event input[type=submit] {
+  padding: 10px;
+  margin: 5px;
+  font-size: 1.2em;
+  border: 0;
+  background: rgba(97, 198, 241, 0.849);
+  color: rgb(0, 0, 0);
+}
+
+
